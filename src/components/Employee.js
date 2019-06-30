@@ -4,12 +4,12 @@ function Employee(props) {
     return (
         <div className='employee-box'>
             <div className='employee-image'>
-                <img src='#' alt=''/>
+                <img src={props.picture.medium} alt={`${props.name.title} ${props.name.first}`}/>
             </div>
             <div className='employee-info'>
-                <p className='name'>Name</p>
-                <p className='email'>Email</p>
-                <p className='place'>Place</p>
+                <p className='name'>{props.name.first} {props.name.last}</p>
+                <p className='email'>{props.email}</p>
+                <p className='place'>{props.location.city}</p>
             </div>
         </div>
     );
