@@ -8,37 +8,43 @@ class App extends React.Component {
     constructor() {
         super();
         this.state = {
+            loading: true,
             employeeList: []
-        }
+        };
     }
 
+    
     componentDidMount() {
         // fetch employees
         fetch('https://randomuser.me/api/?results=12')
-        .then(response => response.json()) // turn it into js object
+        .then(response => response.json())
         .then(data => {
             this.setState(() => {
                 return {
                     employeeList: data.results
                 }
             })
-
         });
 
+        setTimeout(() => {
+            this.setState(() => {
+                return {
+                    loading: false
+                }
+            })
+        }, 1500);
     }
 
     render(){
-        let employeeComponents = [];
-        if(this.state.employeeList.length !== 0 ){
-            employeeComponents = this.state.employeeList.map(employee => <Employee key={employee.id.value} employeeInfo={employee} /> );
-        }
-        
- 
+        console.log(this.state.employeeList);
+
         return (
             <div className='container'>
                 <Title />
-                {employeeComponents.length !== 0 && employeeComponents}
-                {console.log(this.state.employeeList)}
+                {
+                    this.state.loading ? <p>Loading...</p> : 
+                    this.state.employeeList.map(employee => <Employee key={`${employee.name.title} ${employee.name.first}`} employeeInfo={employee} />)
+                }
             </div>
         );
     }
