@@ -42,7 +42,7 @@ class App extends React.Component {
             <div className='container'>
                 <Title />
                 {
-                    this.state.loading ? <p>Loading...</p> : 
+                    this.state.loading ? <h2 className='load-page'>Loading...</h2> : 
                     this.state.employeeList.map(employee => <Employee key={`${employee.name.title} ${employee.name.first}`} employeeInfo={employee} />)
                 }
             </div>

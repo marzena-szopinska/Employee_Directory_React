@@ -3,7 +3,7 @@ import React from 'react';
 function Title() {
     return (
         <div className='title'>
-            <h1>Awesome Startup Employee Directory</h1>
+            <h3>Awesome Startup Employee Directory</h3>
         </div>
     );
 

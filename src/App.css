@@ -9,10 +9,32 @@ body {
   font-family: 'Muli', sans-serif;
 }
 
+h3 {
+  color: gray;
+  text-transform: uppercase;
+}
+
+img {
+  width: 100px;
+  height: 100px;
+  /* make image rounded */
+  border-radius: 50%;
+}
+
 .container {
   width: 100%;
   padding: 1rem;
   text-align: center;
+  background-color: #f2f2f2;
+}
+
+.load-page {
+  /* center the text */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: gray;
 }
 
 .employee-box {
@@ -21,4 +43,9 @@ body {
   padding: 1rem;
   margin-top: 1rem;
   margin-bottom: 1rem;
+  background-color: #fff;
+}
+
+.employee-info .name {
+
 }
