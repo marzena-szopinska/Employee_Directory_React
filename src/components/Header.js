@@ -1,12 +1,12 @@
 import React from 'react';
 
-function Title() {
+function Header() {
     return (
-        <div className='title'>
+        <header>
             <h3>Awesome Startup Employee Directory</h3>
-        </div>
+        </header>
     );
 
 }
 
-export default Title;
+export default Header;

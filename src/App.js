@@ -1,7 +1,8 @@
 import React from 'react';
 import './App.css';
 import Employee from './components/Employee';
-import Title from './components/Title';
+import Header from './components/Header';
+import Footer from './components/Footer';
 
 class App extends React.Component {
 
@@ -40,11 +41,14 @@ class App extends React.Component {
 
         return (
             <div className='container'>
-                <Title />
-                {
-                    this.state.loading ? <h2 className='load-page'>Loading...</h2> : 
-                    this.state.employeeList.map(employee => <Employee key={`${employee.name.title} ${employee.name.first}`} employeeInfo={employee} />)
-                }
+                <Header />
+                <main>
+                    {
+                        this.state.loading ? <h2 className='load-page'>Loading...</h2> : 
+                        this.state.employeeList.map(employee => <Employee key={`${employee.name.title} ${employee.name.last}`} employeeInfo={employee} />)
+                    }
+                </main>
+                <Footer />
             </div>
         );
     }
