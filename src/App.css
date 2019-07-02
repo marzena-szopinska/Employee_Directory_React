@@ -20,11 +20,10 @@ img {
   /* make image rounded */
   border-radius: 50%;
 }
-
+/* set up the grid areas for the css grid */
 header { grid-area: header; }
 main { grid-area: main; }
 footer { grid-area: footer; }
-.employee-box { grid-area: employee;}
 
 .container {
   width: 100%;
@@ -41,26 +40,15 @@ footer { grid-area: footer; }
   'footer';
 }
 
-@media (min-width: 768px){
-  .container {
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 100px, 100px;
-    grid-template-areas: 
-    'header header'
-    'main main'
-    'footer footer';
-  }
-
-  main {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-  }
-
-  .employee-box {
-    width: 47%; 
-  }
+main {
+  /* make a grid from the main container */
+  width: 100%;
+  display: grid;
+  grid-column-gap: 30px;
+  grid-template-columns: minmax(100px, 1fr);
+  grid-template-rows: minmax(100px, auto);
 }
+
 
 .load-page {
   /* center the text */
@@ -82,4 +70,18 @@ footer { grid-area: footer; }
 
 .employee-info .name {
 
+}
+
+
+@media (min-width: 768px){
+  main {
+    grid-template-columns: minmax(100px, 1fr) minmax(100px, 1fr);
+  }
+}
+
+
+@media (min-width: 1024px){
+  main {
+    grid-template-columns: minmax(100px, 1fr) minmax(100px, 1fr) minmax(100px, 1fr);
+  }
 }
