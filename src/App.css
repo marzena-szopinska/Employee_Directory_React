@@ -20,6 +20,7 @@ img {
   /* make image rounded */
   border-radius: 50%;
 }
+
 /* set up the grid areas for the css grid */
 header { grid-area: header; }
 main { grid-area: main; }

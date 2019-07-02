@@ -3,6 +3,7 @@ import './App.css';
 import Employee from './components/Employee';
 import Header from './components/Header';
 import Footer from './components/Footer';
+import Modal from './components/Modal';
 
 class App extends React.Component {
 
@@ -10,8 +11,12 @@ class App extends React.Component {
         super();
         this.state = {
             loading: true,
-            employeeList: []
+            employeeList: [],
+            displayModal: false,
+            modalInfo: {}
         };
+
+        this.handleClick = this.handleClick.bind(this);
     }
 
     
@@ -36,8 +41,30 @@ class App extends React.Component {
         }, 1500);
     }
 
+    handleClick(id) {
+        this.setState(() => {
+            return {
+                displayModal: true
+            }
+        })
+
+        this.setState((prevState) => {
+            const modalInfoToPass = prevState.employeeList.filter(employee => {
+                if(`${employee.name.first} ${employee.name.last}` === id){
+                    return employee;
+                }
+            })
+            return {
+                modalInfo: modalInfoToPass
+            }
+        })
+
+       
+    }
+
     render(){
         console.log(this.state.employeeList);
+        console.log(this.state.modalInfo);
 
         return (
             <div className='container'>
@@ -45,10 +72,16 @@ class App extends React.Component {
                 <main>
                     {
                         this.state.loading ? <h2 className='load-page'>Loading...</h2> : 
-                        this.state.employeeList.map(employee => <Employee key={`${employee.name.title} ${employee.name.last}`} employeeInfo={employee} />)
+                        this.state.employeeList.map(employee => 
+                            <Employee key={`${employee.name.title}
+                             ${employee.name.last}`} 
+                             employeeInfo={employee}
+                             handleClick={this.handleClick}
+                             />)
                     }
                 </main>
                 <Footer />
+                {/*this.state.displayModal && <Modal moreInfo={this.state.modalInfo}/>*/}
             </div>
         );
     }
