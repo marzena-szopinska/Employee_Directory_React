@@ -13,7 +13,7 @@ class App extends React.Component {
             loading: true,
             employeeList: [],
             displayModal: false,
-            modalInfo: {}
+            modalInfo: []
         };
 
         this.handleClick = this.handleClick.bind(this);
@@ -42,30 +42,23 @@ class App extends React.Component {
     }
 
     handleClick(id) {
-        this.setState(() => {
-            return {
-                displayModal: true
-            }
-        })
-
         this.setState((prevState) => {
             const modalInfoToPass = prevState.employeeList.filter(employee => {
                 if(`${employee.name.first} ${employee.name.last}` === id){
+                    // get only and only one object that fulfils the condition
                     return employee;
                 }
             })
             return {
+                displayModal: true,
+                // update the modalInfo state
                 modalInfo: modalInfoToPass
+                
             }
-        })
-
-       
+        })  
     }
 
     render(){
-        console.log(this.state.employeeList);
-        console.log(this.state.modalInfo);
-
         return (
             <div className='container'>
                 <Header />
@@ -81,7 +74,7 @@ class App extends React.Component {
                     }
                 </main>
                 <Footer />
-                {/*this.state.displayModal && <Modal moreInfo={this.state.modalInfo}/>*/}
+                {this.state.displayModal && <Modal modalInfo={this.state.modalInfo} />}
             </div>
         );
     }
