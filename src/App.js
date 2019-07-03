@@ -41,18 +41,13 @@ class App extends React.Component {
         }, 1500);
     }
 
-    handleClick(id) {
-        this.setState((prevState) => {
-            const modalInfoToPass = prevState.employeeList.filter(employee => {
-                if(`${employee.name.first} ${employee.name.last}` === id){
-                    // get only and only one object that fulfils the condition
-                    return employee;
-                }
-            })
+    handleClick(employee) {
+        this.setState(() => {
             return {
+                // set displayModal to true
                 displayModal: true,
                 // update the modalInfo state
-                modalInfo: modalInfoToPass
+                modalInfo: employee
                 
             }
         })  

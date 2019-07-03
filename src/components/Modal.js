@@ -3,7 +3,6 @@ import React from 'react';
 function Modal(props) {
     console.log(props.modalInfo);
     return (
-        
         <div className='bg-modal'>
             <div className='modal-content'>
                 <div className='modal-image'>
