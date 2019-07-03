@@ -13,10 +13,11 @@ class App extends React.Component {
             loading: true,
             employeeList: [],
             displayModal: false,
-            modalInfo: []
+            modalInfo: {}
         };
 
-        this.handleClick = this.handleClick.bind(this);
+        this.handleOpenModal = this.handleOpenModal.bind(this);
+        this.handleCloseModal = this.handleCloseModal.bind(this);
     }
 
     
@@ -41,7 +42,7 @@ class App extends React.Component {
         }, 1500);
     }
 
-    handleClick(employee) {
+    handleOpenModal(employee) {
         this.setState(() => {
             return {
                 // set displayModal to true
@@ -51,6 +52,14 @@ class App extends React.Component {
                 
             }
         })  
+    }
+
+    handleCloseModal(){
+        this.setState(() => {
+            return {
+                displayModal: false
+            }
+        })
     }
 
     render(){
@@ -64,12 +73,12 @@ class App extends React.Component {
                             <Employee key={`${employee.name.title}
                              ${employee.name.last}`} 
                              employeeInfo={employee}
-                             handleClick={this.handleClick}
+                             handleOpenModal={this.handleOpenModal}
                              />)
                     }
                 </main>
-                <Footer />
-                {this.state.displayModal && <Modal modalInfo={this.state.modalInfo} />}
+                {this.state.loading === false && <Footer />}
+                {this.state.displayModal && <Modal modalInfo={this.state.modalInfo} handleCloseModal={this.handleCloseModal}/>}
             </div>
         );
     }

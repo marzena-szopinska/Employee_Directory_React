@@ -2,7 +2,7 @@ import React from 'react';
 
 function Employee(props) {
     return (
-        <div className='employee-box' onClick={() => props.handleClick(props.employeeInfo)}>
+        <div className='employee-box' onClick={() => props.handleOpenModal(props.employeeInfo)}>
             <div className='employee-image'>
                 <img src={props.employeeInfo.picture.medium} alt={`${props.employeeInfo.name.title} ${props.employeeInfo.name.first}`}/>
             </div>

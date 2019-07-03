@@ -1,10 +1,10 @@
 import React from 'react';
 
 function Modal(props) {
-    console.log(props.modalInfo);
     return (
         <div className='bg-modal'>
             <div className='modal-content'>
+                <i className="fas fa-times" onClick={props.handleCloseModal}></i>
                 <div className='modal-image'>
                     <img src={props.modalInfo.picture.medium} alt={`${props.modalInfo.name.title} ${props.modalInfo.name.first}`}/>
                 </div>

@@ -12,6 +12,7 @@ body {
 h3 {
   color: gray;
   text-transform: uppercase;
+  margin-bottom: 0.9rem;
 }
 
 img {
@@ -69,8 +70,30 @@ main {
   background-color: #fff;
 }
 
-.employee-info .name {
+.employee-info, .modal-info {
+  margin-top: .5rem;
+}
 
+.employee-info .name,
+.modal-info .name {
+  font-weight: 700;
+}
+
+
+.employee-info .name, 
+.modal-info .name,
+.employee-info .place,
+.modal-info .place
+{
+  text-transform: capitalize;
+}
+
+
+.employee-info .email,
+.modal-info .email, 
+.employee-info .place,
+.modal-info .place {
+  color: gray;
 }
 
 /* MODAL WINDOW */
@@ -85,6 +108,18 @@ main {
   background-color: rgba(0, 0, 0, .6);
 }
 
+.fas {
+  position: absolute;
+  top: 8px;
+  right: 11px;
+  font-size: 1.5rem;
+}
+
+hr {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
 .modal-content {
   width: 90%;
   position: absolute;
@@ -94,6 +129,7 @@ main {
   box-shadow: 10px 6px 50px black;
   border-radius: 5px;
   background-color: #F6F6F6;
+  padding: 2rem;
 }
 
 

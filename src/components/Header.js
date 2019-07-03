@@ -3,7 +3,7 @@ import React from 'react';
 function Header() {
     return (
         <header>
-            <h3>Awesome Startup Employee Directory</h3>
+            <h3>Awesome Startup Employee Directory In React</h3>
         </header>
     );
 
