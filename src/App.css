@@ -88,7 +88,8 @@ main {
 .employee-info .name, 
 .modal-info .name,
 .employee-info .place,
-.modal-info .place
+.modal-info .place,
+.modal-more-info
 {
   text-transform: capitalize;
 }
@@ -98,7 +99,8 @@ main {
 .modal-info .email, 
 .employee-info .place,
 .modal-info .place,
-footer {
+footer,
+.modal-more-info {
   color: gray;
 }
 
@@ -142,6 +144,10 @@ hr {
   padding: 2rem;
   animation: fadeIn .7s ease-out;
   
+}
+
+.modal-more-info {
+
 }
 
 
