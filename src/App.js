@@ -28,11 +28,12 @@ class App extends React.Component {
         .then(data => {
             this.setState(() => {
                 return {
+                    // store the employees
                     employeeList: data.results
                 }
             })
         });
-
+        // set loading to false after 1500s
         setTimeout(() => {
             this.setState(() => {
                 return {
@@ -57,21 +58,26 @@ class App extends React.Component {
     handleCloseModal(){
         this.setState(() => {
             return {
-                displayModal: false
+                //set displayModal to false
+                displayModal: false,
+                // clear the modalInfo object
+                modalInfo: {}
             }
         })
     }
 
     render(){
         return (
+            
             <div className='container'>
+            {console.log(this.state.modalInfo)}
+            {console.log(this.state.employeeList)}
                 <Header />
                 <main>
                     {
                         this.state.loading ? <h2 className='load-page'>Loading...</h2> : 
                         this.state.employeeList.map(employee => 
-                            <Employee key={`${employee.name.title}
-                             ${employee.name.last}`} 
+                            <Employee key={`${employee.id.value}-${employee.name.last}`} 
                              employeeInfo={employee}
                              handleOpenModal={this.handleOpenModal}
                              />)

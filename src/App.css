@@ -68,6 +68,11 @@ main {
   margin-top: 1rem;
   margin-bottom: 1rem;
   background-color: #fff;
+  transition: transform .3s ease-out;
+}
+
+.employee-box:hover {
+  transform: scale(1.05);
 }
 
 .employee-info, .modal-info {
@@ -92,8 +97,13 @@ main {
 .employee-info .email,
 .modal-info .email, 
 .employee-info .place,
-.modal-info .place {
+.modal-info .place,
+footer {
   color: gray;
+}
+
+footer {
+  font-style: italic;
 }
 
 /* MODAL WINDOW */
@@ -130,12 +140,27 @@ hr {
   border-radius: 5px;
   background-color: #F6F6F6;
   padding: 2rem;
+  animation: fadeIn .7s ease-out;
+  
 }
 
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
 
 @media (min-width: 768px){
   main {
     grid-template-columns: minmax(100px, 1fr) minmax(100px, 1fr);
+  }
+
+  .modal-content {
+    width: 50%;
   }
 }
 
@@ -143,5 +168,15 @@ hr {
 @media (min-width: 1024px){
   main {
     grid-template-columns: minmax(100px, 1fr) minmax(100px, 1fr) minmax(100px, 1fr);
+  }
+
+  .modal-content {
+    width: 40%;
+  }
+}
+
+@media (min-width: 1440px){
+  .modal-content {
+    width: 30%;
   }
 }
